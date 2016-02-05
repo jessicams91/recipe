@@ -1,1 +1,13 @@
-<h1>Receitas</h1>
+<h1>Social Recipes</h1>
+<section id="recipes">
+  <% @recipes.each do |recipe| %>
+      <div class="recipes">
+        <h3><%= link_to recipe.name, recipe %></h3>
+        <p><%= recipe.preference %></p>
+        <p><%= recipe.food_type %></p>
+        <p><%= recipe.kitchen %></p>
+        <p><%= recipe.difficulty %></p>
+      </div>
+      <hr>
+  <% end %>
+</section>

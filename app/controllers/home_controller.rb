@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   respond_to :html
   def index
-    @recipe = Recipe.all
+    @recipes = Recipe.all
   end
 end
