@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show]
+  before_action :set_collections, only: [:new, :create, :edit]
+  before_action :set_recipe, only: [:edit, :show, :update]
   respond_to :html
   def new
     @recipe = Recipe.new
@@ -20,9 +21,13 @@ class RecipesController < ApplicationController
   @recipe = Recipe.find(params[:id])
   end
 
+  def set_collections
+    @kitchens = Kitchen.all
+  end
+
   def recipe_params
   params.require(:recipe)
-    .permit(:name, :kitchen, :food_type, :preference, :servings, :cook_time, :step_by_step,
+    .permit(:name, :kitchen_id, :food_type, :preference, :servings, :cook_time, :step_by_step,
            :ingredients, :difficulty)
   end
 end

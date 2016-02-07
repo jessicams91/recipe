@@ -1,18 +1,10 @@
-<div id="errors">
-<% if @recipe.errors.any? %>
-<ul>
-  <% @recipe.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-</ul>
-<% end %>
-</div>
+<span class="error_message"><%= flash[:alert] %></span>
 <%= form_for @recipe do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
-  <%= f.label :kitchen %>
-  <%= f.text_field :kitchen %>
+  <%= f.label :kitchen_id %>
+  <%= f.collection_select :kitchen_id, @kitchens, :id, :name %>
 
   <%= f.label :food_type %>
   <%= f.text_field :food_type %>
