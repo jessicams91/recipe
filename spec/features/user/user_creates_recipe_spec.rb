@@ -7,8 +7,8 @@ describe 'User creates a new recipe' do
   visit new_recipe_path
 
   fill_in 'Name',         with: recipe.name
-  select recipe.kitchen.name,  from: 'Kitchen'
-  fill_in 'Food type',    with: recipe.food_type
+  select recipe.kitchen.name,   from: 'Kitchen'
+  select recipe.food_type.name, from: 'Food type'
   fill_in 'Preference',   with: recipe.preference
   fill_in 'Servings',     with: recipe.servings
   fill_in 'Cook time',    with: recipe.cook_time
@@ -20,7 +20,7 @@ describe 'User creates a new recipe' do
 
   expect(page).to have_content recipe.name
   expect(page).to have_content recipe.kitchen.name
-  expect(page).to have_content recipe.food_type
+  expect(page).to have_content recipe.food_type.name
   expect(page).to have_content recipe.preference
   expect(page).to have_content recipe.servings
   expect(page).to have_content recipe.cook_time

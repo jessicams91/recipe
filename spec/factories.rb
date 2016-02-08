@@ -1,8 +1,11 @@
 FactoryGirl.define do
+  factory :food_type do
+    name 'Pincipal'
+  end
   factory :recipe do
     name 'Feijoada'
     kitchen
-    food_type 'Principal'
+    food_type
     preference 'Carnes'
     servings 6
     cook_time 30
