@@ -1,4 +1,4 @@
-  class KitchensController < ApplicationController
+class KitchensController < ApplicationController
   before_action :set_kitchen, only: [:show]
   respond_to :html
   def new

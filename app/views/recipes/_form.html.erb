@@ -9,8 +9,8 @@
   <%= f.label :food_type_id %>
   <%= f.collection_select :food_type_id, @food_types, :id, :name %>
 
-  <%= f.label :preference %>
-  <%= f.text_field :preference %>
+  <%= f.label :preference_id %>
+  <%= f.collection_select :preference_id, @preferences, :id, :name %>
 
   <%= f.label :servings %>
   <%= f.number_field :servings %>
