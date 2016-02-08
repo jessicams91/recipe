@@ -7,12 +7,13 @@ feature 'Visitor visits Social Recipes home page' do
   end
 
   scenario 'and views recipes' do
-    recipe = FactoryGirl.create(:recipe)
+    kitchen = FactoryGirl.create(:kitchen)
+    recipe = FactoryGirl.create(:recipe, kitchen: kitchen)
 
   visit root_path
 
   expect(page).to have_content recipe.name
-  expect(page).to have_content recipe.kitchen
+  expect(page).to have_content kitchen.name
   expect(page).to have_content recipe.food_type
   expect(page).to have_content recipe.preference
   expect(page).to have_content recipe.difficulty
