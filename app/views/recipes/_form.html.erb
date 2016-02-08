@@ -6,8 +6,8 @@
   <%= f.label :kitchen_id %>
   <%= f.collection_select :kitchen_id, @kitchens, :id, :name %>
 
-  <%= f.label :food_type %>
-  <%= f.text_field :food_type %>
+  <%= f.label :food_type_id %>
+  <%= f.collection_select :food_type_id, @food_types, :id, :name %>
 
   <%= f.label :preference %>
   <%= f.text_field :preference %>
