@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   respond_to :html
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.first(20)
     @kitchens = Kitchen.all
     @food_types = FoodType.all
     @preferences = Preference.all

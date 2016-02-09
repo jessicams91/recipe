@@ -22,4 +22,26 @@ feature 'Visitor visits Social Recipes home page' do
   expect(page).to_not have_content recipe.step_by_step
   expect(page).to have_link recipe.name
   end
+
+  scenario 'and views last 20 recipes' do
+    travel_to 1.day.ago do
+      FactoryGirl.create(:recipe, name: 'Receita 1')
+    end
+    travel_to 2.days.ago do
+      FactoryGirl.create_list(:recipe, 18, name: 'Receita 2')
+    end
+    travel_to 3.days.ago do
+      FactoryGirl.create(:recipe, name: 'Receita 3')
+    end
+    travel_to 4.days.ago do
+      FactoryGirl.create(:recipe, name: 'Receita 4')
+    end
+
+    visit root_path
+
+    expect(page).to have_content 'Receita 1'
+    expect(page).to have_content 'Receita 2'
+    expect(page).to have_content 'Receita 3'
+    expect(page).to_not have_content 'Receita 4'
+  end
 end
