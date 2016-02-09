@@ -24,17 +24,18 @@ feature 'Visitor visits Social Recipes home page' do
   end
 
   scenario 'and views last 20 recipes' do
+    user = FactoryGirl.create(:user)
     travel_to 1.day.ago do
-      FactoryGirl.create(:recipe, name: 'Receita 1')
+      FactoryGirl.create(:recipe, name: 'Receita 1', user: user)
     end
     travel_to 2.days.ago do
-      FactoryGirl.create_list(:recipe, 18, name: 'Receita 2')
+      FactoryGirl.create_list(:recipe, 18, name: 'Receita 2', user: user)
     end
     travel_to 3.days.ago do
-      FactoryGirl.create(:recipe, name: 'Receita 3')
+      FactoryGirl.create(:recipe, name: 'Receita 3', user: user)
     end
     travel_to 4.days.ago do
-      FactoryGirl.create(:recipe, name: 'Receita 4')
+      FactoryGirl.create(:recipe, name: 'Receita 4', user: user)
     end
 
     visit root_path

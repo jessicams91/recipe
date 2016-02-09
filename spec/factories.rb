@@ -1,6 +1,7 @@
 FactoryGirl.define do
-  factory :add_preference_to_recipe do
-    preference nil
+  factory :user do
+    email 'jessica@mail.com.br'
+    password '12345678'
   end
   factory :preference do
     name 'Carnes'
@@ -21,5 +22,6 @@ FactoryGirl.define do
     difficulty 'Media'
     step_by_step 'Cortar tudo'
     ingredients 'Feijão e etc'
+    user
   end
 end

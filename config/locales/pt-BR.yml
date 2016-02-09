@@ -1,0 +1,12 @@
+pt-BR:
+  flash:
+    actions:
+      edit:
+        notice: 'Você não pode editar receitas criadas por outros usuários!'
+      new:
+  activerecord:
+    models:
+      user: 'User'
+      food_type: 'Tipo de Comida'
+      kitchen: 'Cozinha'
+      preference: 'Preferência'
