@@ -8,3 +8,8 @@
 <p><strong>Nível de Dificuldade:</strong> <%= @recipe.difficulty %></p>
 <p><strong>Ingredientes:</strong> <%= @recipe.ingredients %></p>
 <p><strong>Passo a Passo:</strong> <%= @recipe.step_by_step %></p>
+
+<% if current_user.id == @recipe.user_id %>
+  <p><%= link_to 'Deletar', @recipe,  method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+  <p><%= link_to 'Editar', edit_recipe_path(@recipe) %></p>
+<% end %>
