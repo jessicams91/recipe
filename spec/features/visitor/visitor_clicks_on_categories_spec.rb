@@ -8,7 +8,6 @@ describe 'Visitor clicks on' do
     visit root_path
 
     login_as(user, scope: :user)
-
     click_on recipe.kitchen.name
 
     expect(page).to have_content recipe.kitchen.name
