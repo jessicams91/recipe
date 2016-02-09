@@ -44,4 +44,18 @@ feature 'Visitor visits Social Recipes home page' do
     expect(page).to have_content 'Receita 3'
     expect(page).to_not have_content 'Receita 4'
   end
+
+  scenario 'and vies categories' do
+    recipe = FactoryGirl.create(:recipe)
+
+    visit root_path
+
+    expect(page).to have_content recipe.name
+    expect(page).to have_content 'Cozinhas'
+    expect(page).to have_content 'Tipos'
+    expect(page).to have_content 'Preferências'
+    expect(page).to have_link recipe.kitchen.name
+    expect(page).to have_link recipe.food_type.name
+    expect(page).to have_link recipe.preference.name
+  end
 end

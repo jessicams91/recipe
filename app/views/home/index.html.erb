@@ -11,3 +11,23 @@
       <hr>
   <% end %>
 </section>
+<aside>
+  <h4>Cozinhas</h4>
+  <% @kitchens.each do |kitchen| %>
+    <p><%= link_to kitchen.name, kitchen %></p>
+  <% end %>
+</aside>
+<hr>
+<aside>
+  <h4>Tipos</h4>
+  <% @food_types.each do |food_type| %>
+    <p><%= link_to food_type.name, food_type %></p>
+  <% end %>
+</aside>
+<hr>
+<aside>
+<h4>Preferências</h4>
+<% @preferences.each do |preference| %>
+  <p><%= link_to preference.name, preference %></p>
+<% end %>
+</aside>
