@@ -1,7 +1,9 @@
 require  'rails_helper'
 
-describe 'Administrator creates a new food_type' do
+describe 'useristrator creates a new food_type' do
   scenario 'successfully' do
+    user = FactoryGirl.create(:user, admin: true)
+    login_as(user, scope: :user)
     food_type = FactoryGirl.create(:food_type)
 
     visit new_food_type_path

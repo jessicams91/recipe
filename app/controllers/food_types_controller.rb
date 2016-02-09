@@ -1,5 +1,6 @@
 class FoodTypesController < ApplicationController
   before_action :set_food_type, only: [:show]
+  before_action :authenticate_user!, except: [:show]
   respond_to :html
   def new
     @food_type = FoodType.new

@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_collections, only: [:new, :create, :edit]
   before_action :set_recipe, only: [:edit, :show, :update, :destroy]
+  before_action :authenticate_user!, except: [:show]
   before_action :recipe_owner, only: [:edit, :update, :destroy]
   respond_to :html
   def new
