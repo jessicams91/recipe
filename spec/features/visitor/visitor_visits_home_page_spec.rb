@@ -45,7 +45,7 @@ feature 'Visitor visits Social Recipes home page' do
     expect(page).to_not have_content 'Receita 4'
   end
 
-  scenario 'and vies categories' do
+  scenario 'and views categories' do
     recipe = FactoryGirl.create(:recipe)
 
     visit root_path
