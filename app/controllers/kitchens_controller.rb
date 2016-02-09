@@ -1,5 +1,6 @@
 class KitchensController < ApplicationController
   before_action :set_kitchen, only: [:show]
+  before_action :authenticate_user!, except: [:show]
   respond_to :html
   def new
     @kitchen = Kitchen.new

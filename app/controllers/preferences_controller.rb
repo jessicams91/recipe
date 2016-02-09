@@ -1,5 +1,6 @@
 class PreferencesController < ApplicationController
   before_action :set_preference, only: [:show]
+  before_action :authenticate_user!, except: [:show]
   respond_to :html
   def new
     @preference = Preference.new
