@@ -1,10 +1,14 @@
 FactoryGirl.define do
+  factory :favorite_recipe do
+    recipe
+    user
+  end
   factory :admin do
-    email 'jessica_admin@mail.com.br'
+    sequence(:email) { |n| "user#{n}@email.com" }
     password '12345678'
   end
   factory :user do
-    email 'jessica@mail.com.br'
+    sequence(:email) { |n| "user#{n}@email.com" }
     password '12345678'
   end
   factory :preference do
@@ -17,7 +21,7 @@ FactoryGirl.define do
     name 'Brasileira'
   end
   factory :recipe do
-    name 'Feijoada'
+    sequence(:name, 1) { |n| "Receita#{n}" }
     kitchen
     food_type
     preference

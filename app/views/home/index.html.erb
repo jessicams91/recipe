@@ -1,7 +1,21 @@
 <h1>Social Recipes</h1>
-<section id="recipes">
-  <% @recipes.each do |recipe| %>
-      <div class="recipes">
+<h2>Últimas Receitas</h2>
+<section id="last_recipes">
+  <% @last_recipes.each do |recipe| %>
+      <div class="last_recipes">
+        <h3><%= link_to recipe.name, recipe %></h3>
+        <p><%= recipe.preference.name %></p>
+        <p><%= recipe.food_type.name %></p>
+        <p><%= recipe.kitchen.name %></p>
+        <p><%= recipe.difficulty %></p>
+      </div>
+      <hr>
+  <% end %>
+</section>
+<h2>Preferidas dos usuários</h2>
+<section id="favorite_recipes">
+  <% @favorite_recipes.each do |recipe| %>
+      <div class="favorite_recipes">
         <h3><%= link_to recipe.name, recipe %></h3>
         <p><%= recipe.preference.name %></p>
         <p><%= recipe.food_type.name %></p>

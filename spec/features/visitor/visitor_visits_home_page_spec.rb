@@ -39,11 +39,12 @@ feature 'Visitor visits Social Recipes home page' do
     end
 
     visit root_path
-
-    expect(page).to have_content 'Receita 1'
-    expect(page).to have_content 'Receita 2'
-    expect(page).to have_content 'Receita 3'
-    expect(page).to_not have_content 'Receita 4'
+    within('section#last_recipes') do
+      expect(page).to have_content 'Receita 1'
+      expect(page).to have_content 'Receita 2'
+      expect(page).to have_content 'Receita 3'
+      expect(page).to_not have_content 'Receita 4'
+    end
   end
 
   scenario 'and views categories' do
@@ -58,5 +59,20 @@ feature 'Visitor visits Social Recipes home page' do
     expect(page).to have_link recipe.kitchen.name
     expect(page).to have_link recipe.food_type.name
     expect(page).to have_link recipe.preference.name
+  end
+
+  scenario 'and views most favorited recipes' do
+    FactoryGirl.create_list(:favorite_recipe, 19)
+    favorite = FactoryGirl.create(:favorite_recipe)
+    recipe = favorite.recipe
+    FactoryGirl.create(:favorite_recipe, recipe: recipe)
+    recipe2 = FactoryGirl.create(:recipe)
+
+    visit root_path
+
+    within('section#favorite_recipes') do
+      expect(page).to have_content recipe.name
+      expect(page).to_not have_content recipe2.name
+    end
   end
 end
