@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_collections, only: [:new, :create, :edit]
-  before_action :set_recipe, only: [:edit, :show, :update, :destroy]
+  before_action :set_recipe, only: [:edit, :show, :update, :destroy, :favorite]
   before_action :authenticate_user!, except: [:show]
   before_action :recipe_owner, only: [:edit, :update, :destroy]
   respond_to :html
@@ -28,6 +28,21 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
+  end
+
+  def favorite
+    type = params[:type]
+    if type == 'favorite'
+      current_user.favorites << @recipe
+      redirect_to :back, notice: 'You favorited #{@recipe.name}'
+
+    elsif type == 'unfavorite'
+      current_user.favorites.delete(@recipe)
+      redirect_to :back, notice: 'Unfavorited #{@recipe.name}'
+
+    else
+      redirect_to :back, notice: 'Nothing happened.'
+    end
   end
 
   private
