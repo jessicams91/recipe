@@ -12,6 +12,8 @@ FactoryGirl.define do
     password '12345678'
     sequence(:name) { |n| "Usuário#{n}" }
     city 'São Paulo'
+    sequence(:facebook) { |n| "facebook#{n}" }
+    sequence(:twitter) { |n| "twitter#{n}" }
   end
   factory :preference do
     sequence(:name, 1) { |n| "Preferência#{n}" }
