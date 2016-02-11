@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :favorite_recipe do
     recipe
+    user
   end
   factory :admin do
     sequence(:email) { |n| "user#{n}@email.com" }

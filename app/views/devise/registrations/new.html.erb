@@ -48,6 +48,10 @@
     <% end %>
   </div>
 
+  <%= f.label :preference_id %>
+  <%= f.collection_select :preference_id, @preference, :id, :name,  {:multiple => true}  %>
+
+  </div>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

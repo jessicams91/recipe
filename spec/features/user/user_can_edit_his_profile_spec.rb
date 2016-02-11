@@ -12,7 +12,6 @@ feature 'User edit his profile' do
     fill_in 'Email',    with: user.email
     fill_in 'Facebook', with: user.facebook
     fill_in 'Twitter',  with: user.twitter
-    # binding.pry
     check   'kitchen_1'
     check   'kitchen_2'
     fill_in 'Current password',  with: user.password
