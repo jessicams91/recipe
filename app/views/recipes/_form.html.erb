@@ -1,5 +1,7 @@
 <span class="error_message"><%= flash[:alert] %></span>
 <%= form_for @recipe do |f| %>
+  <%= f.file_field :photo %>
+
   <%= f.label :name %>
   <%= f.text_field :name %>
 

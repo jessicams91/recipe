@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210205555) do
+ActiveRecord::Schema.define(version: 20160211174036) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20160210205555) do
     t.string   "name"
     t.string   "difficulty"
     t.string   "step_by_step"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "servings"
     t.string   "ingredients"
     t.integer  "cook_time"
@@ -72,7 +72,11 @@ ActiveRecord::Schema.define(version: 20160210205555) do
     t.integer  "food_type_id"
     t.integer  "preference_id"
     t.integer  "user_id"
-    t.integer  "favorite_count", default: 0
+    t.integer  "favorite_count",     default: 0
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "recipes", ["food_type_id"], name: "index_recipes_on_food_type_id"

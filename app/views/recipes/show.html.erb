@@ -1,5 +1,6 @@
 <h2><%= @recipe.name %></h2>
 <hr>
+<p><%= image_tag @recipe.photo.url(:medium) %><p>
 <p><strong>Cozinha:</strong> <%= @recipe.kitchen.name%></p>
 <p><strong>Tipo de comida:</strong> <%= @recipe.food_type.name %></p>
 <p><strong>Preferência de Comida:</strong> <%= @recipe.preference.name %></p>

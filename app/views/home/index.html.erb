@@ -4,6 +4,7 @@
   <% @last_recipes.each do |recipe| %>
       <div class="last_recipes">
         <h3><%= link_to recipe.name, recipe %></h3>
+        <p><%= image_tag recipe.photo.url(:medium) %><p>
         <p><%= recipe.preference.name %></p>
         <p><%= recipe.food_type.name %></p>
         <p><%= recipe.kitchen.name %></p>
@@ -17,6 +18,7 @@
   <% @favorite_recipes.each do |recipe| %>
       <div class="favorite_recipes">
         <h3><%= link_to recipe.name, recipe %></h3>
+        <p><%= image_tag recipe.photo.url(:medium) %><p>
         <p><%= recipe.preference.name %></p>
         <p><%= recipe.food_type.name %></p>
         <p><%= recipe.kitchen.name %></p>
