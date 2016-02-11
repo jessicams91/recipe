@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :favorite_recipe do
     recipe
-    user
   end
   factory :admin do
     sequence(:email) { |n| "user#{n}@email.com" }
@@ -10,16 +9,17 @@ FactoryGirl.define do
   factory :user do
     sequence(:email) { |n| "user#{n}@email.com" }
     password '12345678'
-    admin 0
+    sequence(:name) { |n| "Usuário#{n}" }
+    city 'São Paulo'
   end
   factory :preference do
-    name 'Carnes'
+    sequence(:name, 1) { |n| "Preferência#{n}" }
   end
   factory :food_type do
-    name 'Principal'
+    sequence(:name, 1) { |n| "Tipo de Comida#{n}" }
   end
   factory :kitchen do
-    name 'Brasileira'
+    sequence(:name, 0) {|n| "Cozinha#{n}" }
   end
   factory :recipe do
     sequence(:name, 1) { |n| "Receita#{n}" }
