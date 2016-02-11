@@ -1,33 +1,33 @@
 <span class="error_message"><%= flash[:alert] %></span>
 <%= form_for @recipe do |f| %>
-  <%= f.file_field :photo %>
+  <p><%= f.file_field :photo %></p>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <p><%= f.label :name %></p>
+  <p><%= f.text_field :name %></p>
 
-  <%= f.label :kitchen_id %>
-  <%= f.collection_select :kitchen_id, @kitchens, :id, :name %>
+  <p><%= f.label :kitchen_id %></p>
+  <p><%= f.collection_select :kitchen_id, @kitchens, :id, :name %></p>
 
-  <%= f.label :food_type_id %>
-  <%= f.collection_select :food_type_id, @food_types, :id, :name %>
+  <p><%= f.label :food_type_id %></p>
+  <p><%= f.collection_select :food_type_id, @food_types, :id, :name %></p>
 
-  <%= f.label :preference_id %>
-  <%= f.collection_select :preference_id, @preferences, :id, :name %>
+  <p><%= f.label :preference_id %></p>
+  <p><%= f.collection_select :preference_id, @preferences, :id, :name %></p>
 
-  <%= f.label :servings %>
-  <%= f.number_field :servings %>
+  <p><%= f.label :servings %></p>
+  <p><%= f.number_field :servings %></p>
 
-  <%= f.label :cook_time %>
-  <%= f.number_field :cook_time %>
+  <p><%= f.label :cook_time %></p>
+  <p><%= f.number_field :cook_time %></p>
 
-  <%= f.label :difficulty %>
-  <%= f.text_field :difficulty %>
+  <p><%= f.label :difficulty %></p>
+  <p><%= f.text_field :difficulty %></p>
 
-  <%= f.label :ingredients %>
-  <%= f.text_area :ingredients %>
+  <p><%= f.label :ingredients %></p>
+  <p><%= f.text_area :ingredients %></p>
 
-  <%= f.label :step_by_step %>
-  <%= f.text_area :step_by_step %>
+  <p><%= f.label :step_by_step %></p>
+  <p><%= f.text_area :step_by_step %></p>
 
-  <%= f.submit submit_text %>
+  <p><%= f.submit submit_text %></p>
 <% end %>
