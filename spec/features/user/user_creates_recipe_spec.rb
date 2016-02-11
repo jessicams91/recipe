@@ -2,9 +2,10 @@ require 'rails_helper'
 
 describe 'User creates a new recipe' do
   scenario 'successfuly' do
-    user = FactoryGirl.create(:user)
+    preference = FactoryGirl.create(:preference)
+    user = FactoryGirl.create(:user, preference: preference)
     login_as(user, scope: :user)
-    recipe = FactoryGirl.create(:recipe, user: user)
+    recipe = FactoryGirl.create(:recipe, user: user, preference: preference)
 
     visit new_recipe_path
 

@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   has_many :recipe
   has_many :favorite_recipes
   has_many :favorites, through: :favorite_recipes, source: :recipe
+  belongs_to :preference
+  validates :name, :city, presence: true
 end

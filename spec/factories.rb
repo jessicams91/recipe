@@ -8,8 +8,11 @@ FactoryGirl.define do
     password '12345678'
   end
   factory :user do
+    name 'Maria'
+    city 'São Paulo'
     sequence(:email) { |n| "user#{n}@email.com" }
     password '12345678'
+    preference
   end
   factory :preference do
     name 'Carnes'

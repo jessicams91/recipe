@@ -8,7 +8,7 @@ describe 'Visitor clicks on' do
     visit root_path
 
     login_as(user, scope: :user)
-    
+
     click_on recipe.kitchen.name
 
     expect(page).to have_content recipe.kitchen.name
@@ -29,9 +29,10 @@ describe 'Visitor clicks on' do
   end
 
   scenario 'preference and sees recipes' do
-    user = FactoryGirl.create(:user)
+    preference = FactoryGirl.create(:preference)
+    user = FactoryGirl.create(:user, preference: preference)
     login_as(user, scope: :user)
-    recipe = FactoryGirl.create(:recipe, user: user)
+    recipe = FactoryGirl.create(:recipe, user: user, preference: preference)
 
     visit root_path
 
