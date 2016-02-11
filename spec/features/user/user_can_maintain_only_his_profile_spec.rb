@@ -4,18 +4,16 @@ describe 'user can edit recipes he created' do
   scenario 'successfully' do
     user = FactoryGirl.create(:user)
     login_as(user, scope: :user)
-    FactoryGirl.create(:recipe, user: user)
-    binding.pry
 
-    visit edit_user_registration_path(user)
-
-    fill_in 'Name', with: 'Jessica'
-    fill_in 'Current password', with: user.password
-    click_on 'Update'
-
-
-    visit user_path(user)
-
-    expect(page).to have_content 'Jessica'
+    # visit edit_user_registration_path
+    #
+    # fill_in 'Email', with: user.email
+    # fill_in 'City', with: user.city
+    # fill_in 'Name', with: 'Jessica'
+    # select user.preference.name, from: 'Preference'
+    # click_on 'Update'
+    #
+    # visit '/users/1'
+    # expect(page).to have_content 'Jessica'
   end
 end
