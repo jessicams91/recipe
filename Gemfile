@@ -20,6 +20,7 @@ group :development, :test do
   gem 'capybara'
   gem 'byebug'
   gem 'factory_girl_rails'
+  gem 'rubocop', require: false
 end
 
 group :development do

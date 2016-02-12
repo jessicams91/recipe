@@ -20,6 +20,5 @@ feature 'Visitor visits a user profile' do
     expect(page).to have_link recipe.preference.name
     expect(page).to have_link recipe.food_type.name
     expect(page).to have_link recipe.kitchen.name
-
   end
 end

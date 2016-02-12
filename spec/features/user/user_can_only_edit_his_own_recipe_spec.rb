@@ -8,7 +8,7 @@ describe 'user can edit recipes he created' do
 
     visit edit_recipe_path(recipe)
 
-    fill_in 'Name',         with: 'Receita 1'
+    fill_in 'Name', with: 'Receita 1'
     click_on 'Atualizar Receita'
 
     expect(page).to have_content 'Receita 1'

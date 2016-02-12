@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'User opens recipes' do
   scenario 'and adds to favorites' do
-    other_user = FactoryGirl.create(:user, email:'other_user@mail.com')
+    other_user = FactoryGirl.create(:user, email: 'other_user@mail.com')
     login_as(other_user, scope: :user)
     recipe = FactoryGirl.create(:recipe, user: other_user)
     recipe2 = FactoryGirl.create(:recipe)
@@ -18,7 +18,7 @@ describe 'User opens recipes' do
   end
 
   scenario 'and unfavorites' do
-    other_user = FactoryGirl.create(:user, email:'other_user@mail.com')
+    other_user = FactoryGirl.create(:user, email: 'other_user@mail.com')
     login_as(other_user, scope: :user)
     recipe = FactoryGirl.create(:recipe, user: other_user)
     recipe2 = FactoryGirl.create(:recipe)

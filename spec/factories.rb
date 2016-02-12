@@ -22,7 +22,7 @@ FactoryGirl.define do
     sequence(:name, 1) { |n| "Tipo de Comida#{n}" }
   end
   factory :kitchen do
-    sequence(:name, 0) {|n| "Cozinha#{n}" }
+    sequence(:name, 0) { |n| "Cozinha#{n}" }
   end
   factory :recipe do
     sequence(:name, 1) { |n| "Receita#{n}" }

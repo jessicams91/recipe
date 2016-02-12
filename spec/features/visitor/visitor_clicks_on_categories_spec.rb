@@ -27,7 +27,7 @@ describe 'Visitor clicks on' do
     expect(page).to have_content recipe.food_type.name
     expect(page).to have_content recipe.name
   end
-  
+
   scenario 'preference and sees recipes' do
     user = FactoryGirl.create(:user)
     login_as(user, scope: :user)

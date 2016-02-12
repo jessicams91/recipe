@@ -51,17 +51,19 @@ class RecipesController < ApplicationController
   end
 
   private
+
   def recipe_owner
     if current_user
       unless @recipe.user_id == current_user.id
-      flash[:notice] = 'Você não pode editar receitas criadas por outros usuários'
-      redirect_to root_path
+        flash[:notice] = 'Você não pode editar receitas criadas por
+                                                                outros usuários'
+        redirect_to root_path
       end
     end
   end
 
   def set_recipe
-  @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def set_collections
@@ -71,8 +73,9 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-  params.require(:recipe)
-    .permit(:name, :kitchen_id, :food_type_id, :preference_id, :servings, :cook_time, :step_by_step,
-           :ingredients, :difficulty, :user_id, :photo)
+    params.require(:recipe)
+          .permit(:name, :kitchen_id, :food_type_id, :preference_id, :servings,
+                  :cook_time, :step_by_step, :ingredients,
+                  :difficulty, :user_id, :photo)
   end
 end

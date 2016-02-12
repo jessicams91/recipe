@@ -8,7 +8,7 @@ describe 'useristrator creates a new food_type' do
 
     visit new_food_type_path
 
-    fill_in 'Name',         with: food_type.name
+    fill_in 'Name', with: food_type.name
 
     click_on 'Criar Tipo de Comida'
 

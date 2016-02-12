@@ -14,7 +14,7 @@ feature 'User edit his profile' do
     fill_in 'Twitter',  with: user.twitter
     check   'kitchen_1'
     check   'kitchen_2'
-    fill_in 'Current password',  with: user.password
+    fill_in 'Current password', with: user.password
 
     click_on 'Update'
 
@@ -36,13 +36,12 @@ feature 'User edit his profile' do
     fill_in 'Facebook', with: user.facebook
     fill_in 'Twitter',  with: user.twitter
     check   'kitchen_1'
-    fill_in 'Current password',  with: user.password
+    fill_in 'Current password', with: user.password
 
-   click_on 'Update'
+    click_on 'Update'
 
-   visit user_path(other_user)
+    visit user_path(other_user)
 
-   expect(page).to have_content other_user.name
-
- end
+    expect(page).to have_content other_user.name
+  end
 end

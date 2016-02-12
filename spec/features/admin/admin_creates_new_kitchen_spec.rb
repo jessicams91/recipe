@@ -8,7 +8,7 @@ describe 'Administrator creates a new kitchen' do
 
     visit new_kitchen_path
 
-    fill_in 'Name',         with: kitchen.name
+    fill_in 'Name', with: kitchen.name
 
     click_on 'Criar Cozinha'
 

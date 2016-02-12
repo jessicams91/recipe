@@ -20,16 +20,16 @@ class FoodTypesController < ApplicationController
 
   def user_admin
     unless current_user.admin?
-    flash[:notice] = 'Você não pode criar Tipos de Comida'
-    redirect_to root_path
+      flash[:notice] = 'Você não pode criar Tipos de Comida'
+      redirect_to root_path
     end
   end
 
   def set_food_type
-  @food_type = FoodType.find(params[:id])
+    @food_type = FoodType.find(params[:id])
   end
 
   def food_type_params
-  params.require(:food_type).permit(:name)
+    params.require(:food_type).permit(:name)
   end
 end

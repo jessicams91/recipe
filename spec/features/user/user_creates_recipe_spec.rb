@@ -8,7 +8,7 @@ describe 'User creates a new recipe' do
 
     visit new_recipe_path
 
-    fill_in 'Name',         with: recipe.name
+    fill_in 'Name', with: recipe.name
     select recipe.kitchen.name,   from: 'Kitchen'
     select recipe.food_type.name, from: 'Food type'
     select recipe.preference.name, from: 'Preference'

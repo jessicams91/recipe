@@ -20,16 +20,16 @@ class PreferencesController < ApplicationController
 
   def user_admin
     unless current_user.admin?
-    flash[:notice] = 'Você não pode criar Preferências'
-    redirect_to root_path
+      flash[:notice] = 'Você não pode criar Preferências'
+      redirect_to root_path
     end
   end
 
   def set_preference
-  @preference = Preference.find(params[:id])
+    @preference = Preference.find(params[:id])
   end
 
   def preference_params
-  params.require(:preference).permit(:name)
+    params.require(:preference).permit(:name)
   end
 end

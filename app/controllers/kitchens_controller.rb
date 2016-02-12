@@ -20,16 +20,16 @@ class KitchensController < ApplicationController
 
   def user_admin
     unless current_user.admin?
-    flash[:notice] = 'Você não pode criar Cozinhas'
-    redirect_to root_path
+      flash[:notice] = 'Você não pode criar Cozinhas'
+      redirect_to root_path
     end
   end
 
   def set_kitchen
-  @kitchen = Kitchen.find(params[:id])
+    @kitchen = Kitchen.find(params[:id])
   end
 
   def kitchen_params
-  params.require(:kitchen).permit(:name)
+    params.require(:kitchen).permit(:name)
   end
 end

@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   has_many :favorites, through: :favorite_recipes, source: :recipe
   has_many :kitchens_users
   has_many :kitchens, through: :kitchens_users, source: :kitchen
-  validates :name,:city, presence: true
+  validates :name, :city, presence: true
 end

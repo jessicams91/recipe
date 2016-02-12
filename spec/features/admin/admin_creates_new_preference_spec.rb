@@ -8,7 +8,7 @@ describe 'Administrator creates a new preference' do
 
     visit new_preference_path
 
-    fill_in 'Name',         with: preference.name
+    fill_in 'Name', with: preference.name
 
     click_on 'Criar Preferência'
 
