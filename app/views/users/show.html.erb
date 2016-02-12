@@ -3,13 +3,13 @@
   </aside>
   <section class="user_profile">
     <h1>Perfil de <%= @user.name %></h1>
-    <span><%= @user.email %></span>
-    <span><%= @user.city %></span>
+    <p><span><%= @user.email %></span></p>
+    <p><span><%= @user.city %></span></p>
     <% unless @user.facebook.nil? %>
-      <span><%= link_to 'Facebook' , "https://www.facebook.com/#{@user.facebook}", target: '_blank' %></span>
+      <p><span><%= link_to 'Facebook' , "https://www.facebook.com/#{@user.facebook}", target: '_blank' %></span></p>
     <% end %>
     <% unless @user.twitter.nil? %>
-      <span><%= link_to 'Twitter' , "https://www.twitter.com/#{@user.twitter}", target: '_blank' %></span>
+      <p><span><%= link_to 'Twitter' , "https://www.twitter.com/#{@user.twitter}", target: '_blank' %></span></p>
     <% end %>
 <hr>
     <h2>Receitas de <%= @user.name %></h2>

@@ -10,15 +10,15 @@
 <p><strong>Ingredientes:</strong> <%= @recipe.ingredients %></p>
 <p><strong>Passo a Passo:</strong> <%= @recipe.step_by_step %></p>
 
-<% if current_user.id == @recipe.user_id %>
-  <p><%= link_to 'Deletar', @recipe,  method: :delete,
-                                      data: { confirm: 'Are you sure?' } %> </p>
-  <p><%= link_to 'Editar', edit_recipe_path(@recipe) %></p>
-<% end %>
-
 <% if current_user %>
   <%=link_to 'Adicionar aos Favoritos', favorite_recipe_path(@recipe,
                                         type: 'favorite'), method: :put %>
   <%=link_to 'Remover dos Favoritos', favorite_recipe_path(@recipe,
                                         type: 'unfavorite'), method: :put %>
+  <% if current_user.id == @recipe.user_id %>
+    <p><%= link_to 'Deletar', @recipe,  method: :delete, data: { confirm:
+                                        'Are you sure?' } %> </p>
+    <p><%= link_to 'Editar', edit_recipe_path(@recipe) %></p>
+<% end %>
+
 <% end %>

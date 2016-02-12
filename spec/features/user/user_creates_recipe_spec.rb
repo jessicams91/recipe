@@ -4,7 +4,7 @@ describe 'User creates a new recipe' do
   scenario 'successfuly' do
     user = FactoryGirl.create(:user)
     login_as(user, scope: :user)
-    recipe = FactoryGirl.create(:recipe, user: user)
+    recipe = FactoryGirl.create(:recipe)
 
     visit new_recipe_path
 

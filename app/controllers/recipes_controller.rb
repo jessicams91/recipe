@@ -9,8 +9,12 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.create(recipe_params)
-    respond_with @recipe
+    @recipe = current_user.recipes.create(recipe_params)
+    if @recipe.save
+      redirect_to @recipe
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -28,6 +32,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
+    respond_with @recipe
   end
 
   def favorite
@@ -47,9 +52,11 @@ class RecipesController < ApplicationController
 
   private
   def recipe_owner
-    unless @recipe.user_id == current_user.id
-    flash[:notice] = 'Você não pode editar receitas criadas por outros usuários'
-    redirect_to root_path
+    if current_user
+      unless @recipe.user_id == current_user.id
+      flash[:notice] = 'Você não pode editar receitas criadas por outros usuários'
+      redirect_to root_path
+      end
     end
   end
 
